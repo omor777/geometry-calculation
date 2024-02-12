@@ -58,13 +58,13 @@
         >
           <!-- card 1 -->
           <div
-            class="card-shadow flex flex-col items-center space-y-5 px-10 py-12 rounded-md"
+            class="card-shadow flex flex-col items-center justify-between px-10 py-12 rounded-md"
           >
             <figure>
               <img src="images/triangle.png" alt="Shoes" />
             </figure>
             <div class="w-full">
-              <h2 class="text-2xl font-bold text-center text-[#414141]">
+              <h2 class="text-2xl font-bold text-center text-[#414141] mt-5">
                 Triangle
               </h2>
               <p class="text-[#414141] mt-4 text-center">
@@ -89,46 +89,49 @@
               </form>
 
               <button
-                class="text-white bg bg-[#1090D8] rounded-md py-4 font-bold text-xl w-full mt-12"
+                data-aria-name="Triangle"
+                onclick="calculateTriangleArea(event)"
+                class="text-white bg bg-[#1090D8] rounded-md py-4 font-bold text-xl w-full mt-9"
               >
                 Calculate
               </button>
             </div>
           </div>
+
           <!-- card 2 -->
           <div
-            class="card-shadow flex flex-col items-center space-y-5 px-10 py-12 rounded-md"
+            class="card-shadow flex flex-col items-center justify-between px-10 py-12 rounded-md"
           >
             <figure>
-              <img src="images/triangle.png" alt="Shoes" />
+              <img src="images/rectangle.png" alt="Shoes" />
             </figure>
             <div class="w-full">
               <h2 class="text-2xl font-bold text-center text-[#414141]">
-                Triangle
+                Rectangle
               </h2>
-              <p class="text-[#414141] mt-4 text-center">
-                Area (A) = 0.5 x b x h
-              </p>
+              <p class="text-[#414141] mt-4 text-center">Area (A) = w x l</p>
 
               <form class="flex items-center justify-center gap-4 mt-4">
                 <input
-                  id="triangle-base-value"
+                  id="rectangle-width-value"
                   class="bg-[#F1F1F1] py-2 px-3 outline-none border border-gray-200 rounded max-w-24"
                   type="number"
-                  placeholder="base"
+                  placeholder="width"
                 />
-                <label for="triangle-base-value">cm</label>
+                <label for="rectangle-width-value">cm</label>
                 <input
-                  id="triangle-height-value"
+                  id="rectangle-length-value"
                   class="bg-[#F1F1F1] py-2 px-3 outline-none border border-gray-200 rounded max-w-24"
                   type="number"
-                  placeholder="height"
+                  placeholder="length"
                 />
-                <label for="triangle-height-value">cm</label>
+                <label for="rectangle-length-value">cm</label>
               </form>
 
               <button
-                class="text-white bg bg-[#1090D8] rounded-md py-4 font-bold text-xl w-full mt-12"
+                data-aria-name="Rectangle"
+                onclick="calculateRectangleArea(event)"
+                class="text-white bg bg-[#1090D8] rounded-md py-4 font-bold text-xl w-full mt-9"
               >
                 Calculate
               </button>
@@ -136,38 +139,38 @@
           </div>
           <!-- card 3 -->
           <div
-            class="card-shadow flex flex-col items-center space-y-5 px-10 py-12 rounded-md"
+            class="card-shadow flex flex-col items-center justify-between px-10 py-12 rounded-md"
           >
             <figure>
-              <img src="images/triangle.png" alt="Shoes" />
+              <img src="images/parallelogram.png" alt="Shoes" />
             </figure>
             <div class="w-full">
               <h2 class="text-2xl font-bold text-center text-[#414141]">
-                Triangle
+                Parallelogram
               </h2>
-              <p class="text-[#414141] mt-4 text-center">
-                Area (A) = 0.5 x b x h
-              </p>
+              <p class="text-[#414141] mt-4 text-center">Area (A) = b x h</p>
 
               <form class="flex items-center justify-center gap-4 mt-4">
                 <input
-                  id="triangle-base-value"
+                  id="parallelogram-base-value"
                   class="bg-[#F1F1F1] py-2 px-3 outline-none border border-gray-200 rounded max-w-24"
                   type="number"
                   placeholder="base"
                 />
-                <label for="triangle-base-value">cm</label>
+                <label for="parallelogram-base-value">cm</label>
                 <input
-                  id="triangle-height-value"
+                  id="parallelogram-height-value"
                   class="bg-[#F1F1F1] py-2 px-3 outline-none border border-gray-200 rounded max-w-24"
                   type="number"
                   placeholder="height"
                 />
-                <label for="triangle-height-value">cm</label>
+                <label for="parallelogram-height-value">cm</label>
               </form>
 
               <button
-                class="text-white bg bg-[#1090D8] rounded-md py-4 font-bold text-xl w-full mt-12"
+                data-aria-name="Parallelogram"
+                onclick="calculateParallelogramArea(event)"
+                class="text-white bg bg-[#1090D8] rounded-md py-4 font-bold text-xl w-full mt-9"
               >
                 Calculate
               </button>
@@ -175,16 +178,30 @@
           </div>
         </div>
         <aside
-          class="border col-span-1 border-gray-300 rounded-md min-h-96 py-4"
+          class="border col-span-1 border-gray-300 rounded-md min-h-96 p-4"
         >
           <h3
             class="text-xl font-bold leading-8 text-black/80 underline text-center"
           >
             Area Calculation
           </h3>
+
+          <ol
+            id="aria-output-container"
+            class="list-decimal mt-5 flex flex-col items-center gap-5"
+          >
+            <!-- <li class="text-lg font-medium flex items-center justify-between">
+              Triangle <span>12cm<sup>2</sup></span>
+              <span
+                class="text-sm text-white py-2 px-3 rounded bg-[#1090D8] cursor-pointer"
+                >Convert to m<sup>2</sup></span
+              >
+            </li> -->
+          </ol>
         </aside>
       </section>
     </main>
+
     <script src="scripts/script.js"></script>
   </body>
 </html>
