@@ -66,5 +66,28 @@ function setInnerTextById(displayId, areaValue, areaName) {
   li.appendChild(sp1);
   li.appendChild(sp2);
   ariaOutputContainer.appendChild(li);
-  console.log(li);
+}
+// generate random color
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+const cards = document.getElementsByClassName("square");
+
+for (const card of cards) {
+  card.addEventListener("mouseenter", function () {
+    card.style.transition = "all linear 0.3s";
+    card.style.backgroundColor = getRandomColor();
+  });
+}
+for (const card of cards) {
+  card.addEventListener("mouseleave", function () {
+    card.style.transition = "all linear 0.3s";
+    card.style.backgroundColor = '#ffffff';
+  });
 }
